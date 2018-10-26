@@ -1,0 +1,52 @@
+Grading at Fri Oct 26 12:42:28 UTC 2018
+**Testing broken implementation 10 **
+-------------------------------------
+
+Failed on array6, instead of 8, gave 6
+**Testing broken implementation 11 **
+-------------------------------------
+
+Failed on array3, instead of 1, gave 2
+**Testing broken implementation 1 **
+-------------------------------------
+
+Failed on array2, instead of 3, gave 5
+**Testing broken implementation 2 **
+-------------------------------------
+
+Failed on array10, instead of 2, gave 1
+**Testing broken implementation 3 **
+-------------------------------------
+
+Failed on array1, instead of 5, gave 6
+**Testing broken implementation 4 **
+-------------------------------------
+
+Failed on array11, instead of 0, gave 1
+**Testing broken implementation 5 **
+-------------------------------------
+
+Failed on array2, instead of 3, gave 5
+**Testing broken implementation 6 **
+-------------------------------------
+
+Failed on array3, instead of 1, gave 0
+**Testing broken implementation 7 **
+-------------------------------------
+
+Failed on array1, instead of 5, gave 3
+**Testing broken implementation 8 **
+-------------------------------------
+
+Failed on array1, instead of 5, gave 1
+**Testing broken implementation 9 **
+-------------------------------------
+
+Failed on array10, instead of 2, gave 1
+**Testing correct implementation **
+-------------------------------------
+
+
+All test programs were handled correctly
+
+Overall Grade: PASSED
