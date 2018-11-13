@@ -1,0 +1,53 @@
+Grading at Tue Nov 13 13:16:13 UTC 2018
+**Testing broken implementation 10 **
+-------------------------------------
+
+2 to the power of 2 gives 2 instead of 4
+**Testing broken implementation 11 **
+-------------------------------------
+
+8 to the power of 1 gives 0 instead of 8
+**Testing broken implementation 1 **
+-------------------------------------
+
+0 to the power of 1 gives 1 instead of 0
+**Testing broken implementation 2 **
+-------------------------------------
+
+0 to the power of 1 gives 1 instead of 0
+**Testing broken implementation 3 **
+-------------------------------------
+
+0 to the power of 0 gives 0 instead of 1
+**Testing broken implementation 4 **
+-------------------------------------
+
+4 to the power of 8 gives 0 instead of 65536
+**Testing broken implementation 5 **
+-------------------------------------
+
+1 to the power of 2 gives 0 instead of 1
+**Testing broken implementation 6 **
+-------------------------------------
+
+0 to the power of 1 gives 2 instead of 0
+**Testing broken implementation 7 **
+-------------------------------------
+
+0 to the power of 1 gives 3 instead of 0
+**Testing broken implementation 8 **
+-------------------------------------
+
+1 to the power of 2 gives 2 instead of 1
+**Testing broken implementation 9 **
+-------------------------------------
+
+1 to the power of 1 gives 0 instead of 1
+**Testing correct implementation **
+-------------------------------------
+
+
+All tests were ok.
+
+
+Overall Grade: PASSED
