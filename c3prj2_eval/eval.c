@@ -103,9 +103,9 @@ hand_eval_t build_hand_from_match(deck_t * hand,
 				  unsigned n,
 				  hand_ranking_t what,
 				  size_t idx) {
-  assert((hand -> n_cards) >=5);
-  assert((idx+n)<(hand -> n_cards));
-  assert((n>=1)&&(n<=5));
+  //assert((hand -> n_cards) >=5);
+  //assert((idx+n)<(hand -> n_cards));
+  //assert((n>=1)&&(n<=5));
   hand_eval_t ans;
   ans.ranking = what;
   size_t i = 0;
