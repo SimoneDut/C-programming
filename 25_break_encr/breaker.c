@@ -56,7 +56,10 @@ int main(int argc, char ** argv) {
   if (index < 0) {
     fprintf(stderr,"File empty or without letters");
   }
-  int key = (index + 'a' - 'e') % 26;
+  int key = (index + 'a' - 'e');
+  if (key < 0) {
+    key += nLetters;
+  }
   fprintf(stdout,"%d\n",key);
   return EXIT_SUCCESS;
 }
