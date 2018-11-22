@@ -1,4 +1,4 @@
-Grading at Thu Nov 22 21:10:47 UTC 2018
+Grading at Thu Nov 22 21:14:19 UTC 2018
 Attempting to compile rotateMatrix.c
 testcase1 passed
 #################################################
@@ -8,7 +8,7 @@ testcase2 passed
 #################################################
 testcase3: blank.txt
  (should indicate an error)
-valgrind reported memory errors
+testcase3 passed
 #################################################
 testcase4: short-line.txt
  (should indicate an error)
@@ -50,4 +50,4 @@ testcase10: eof.txt
 Your file matched the expected output
 testcase10 passed
 
-Overall Grade: B
+Overall Grade: A
