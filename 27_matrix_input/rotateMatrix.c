@@ -7,11 +7,11 @@ int readMatrix(FILE * f, char matrix[10][10]) {
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
       c = fgetc(f);
-      if ((c == '\n') || (c == EOF)) { return i; }
+      if ((c == '\n') || (c == EOF)) { return i+1; }
       else { matrix[i][j] = c; }
     }
     c = fgetc(f);
-    if ((c != '\n') || (c == EOF)) { return i; }
+    if ((c != '\n') || (c == EOF)) { return i+1; }
   }
   c = fgetc(f);
   if (c != EOF) { return 11; }
@@ -53,7 +53,7 @@ int main(int argc, char ** argv) {
   char matrix[10][10];
   int readResult;
   if ((readResult = readMatrix(f,matrix)) > 0) {
-    fprintf(stderr,"There is a problem with line %d\n",readResult+1);
+    fprintf(stderr,"There is a problem with line %d\n",readResult);
     return EXIT_FAILURE;
   };
   if (fclose(f) != 0) {
