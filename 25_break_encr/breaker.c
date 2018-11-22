@@ -18,11 +18,16 @@ void countLetters(FILE * f, int * freq) {
 int findMaxLetter(int * freq, int n) {
   int maxIndex = 0;
   int maxValue = 0;
+  int totalLetters = 0;
   for (int i = 0; i < n; i++) {
     if (freq[i] > maxValue) {
       maxIndex = i;
       maxValue = freq[i];
     }
+    totalLetters += freq[i];
+  }
+  if (totalLetters == 0) {
+    return -1;
   }
   return maxIndex;
 }
@@ -48,6 +53,9 @@ int main(int argc, char ** argv) {
     fprintf(stderr,"Failed to close the input file\n");
   }
   int index = findMaxLetter(frequency,nLetters);
+  if (index < 0) {
+    fprintf(stderr,"File empty or without letters");
+  }
   int key = (index + 'a' - 'e') % 26;
   fprintf(stdout,"%d\n",key);
   return EXIT_SUCCESS;
