@@ -14,14 +14,12 @@
 
 #define IS_MINE(x) ((x) == HAS_MINE || (x) == KNOWN_MINE)
 
-
 struct _board_t {
   int ** board;
   int width;
   int height;
   int totalMines;
 };
-
 typedef struct _board_t board_t;
 
 void addRandomMine(board_t * b) {
@@ -41,9 +39,23 @@ void addRandomMine(board_t * b) {
 }
 
 board_t * makeBoard(int w, int h, int numMines) {
-  //WRITE ME!
-  return NULL;
+  board_t * b = malloc(sizeof(*b));
+  b->width = w;
+  b->height = h;
+  b->totalMines = numMines;
+  b->board = malloc(h*sizeof(*(b->board)));
+  for (int i = 0; i < h; i++) {
+    b->board[i] = malloc(w*sizeof(*(b->board[i])));
+    for (int j = 0; j < w; j++) {
+      b->board[i][j]=UNKNOWN;
+    }
+  }
+  for (int k = 0; k < numMines; k++) {
+    addRandomMine(b);
+  }
+  return b;
 }
+
 void printBoard(board_t * b) {    
   int found = 0;
   printf("    ");
@@ -94,10 +106,23 @@ void printBoard(board_t * b) {
   }
   printf("\nFound %d of %d mines\n", found, b->totalMines);
 }
+
 int countMines(board_t * b, int x, int y) {
-  //WRITE ME!
-  return 0;
+  int count = 0;
+  for (int i = -1; i <= 1; i++) {
+    for (int j = -1; j <= 1; j++) {
+      int ny = y+i;
+      int nx = x+j;
+      if ((ny>=0)&&(ny<b->height)&&(nx>=0)&&(nx<b->width)) {
+	if ((i!=0)||(j!=0)) {
+	  if (IS_MINE(b->board[ny][nx])) { count++; }
+	}
+      }
+    }
+  }
+  return count;
 }
+
 int click (board_t * b, int x, int y) {
   if (x < 0 || x >= b->width ||
       y < 0 || y >= b->height) {
@@ -118,12 +143,20 @@ int click (board_t * b, int x, int y) {
 }
 
 int checkWin(board_t * b) {
-  //WRITE ME!
-  return 0;
+  for (int i = 0; i < b->height; i++) {
+    for (int j = 0; j < b->width; j++) {
+      if (b->board[i][j]==UNKNOWN) { return 0; }
+    }
+  }
+  return 1;
 }
 
 void freeBoard(board_t * b) {
-  //WRITE ME!
+  for (int i = 0; i < b->height; i++) {
+    free(b->board[i]);
+  }
+  free(b->board);
+  free(b);
 }
 
 int readInt(char ** linep, size_t * lineszp) {
