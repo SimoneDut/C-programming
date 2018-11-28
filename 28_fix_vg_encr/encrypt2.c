@@ -11,11 +11,13 @@ void encrypt(FILE * f, int key, FILE * outfile){
     while (*ptr != '\0') {
       int c = *ptr;
       if (isalpha(c)) {
+	int delta = c - tolower(c);
 	c = tolower(c);
 	c -= 'a';
 	c += key;
 	c %= 26;
 	c += 'a';
+	c += delta;
       }
       *ptr = c;
       ptr++;
@@ -48,7 +50,7 @@ int main(int argc, char ** argv) {
   free(outFileName);
   encrypt(f,key, outFile);
   if (fclose(outFile) != 0) {
-    perror("Failed to close the input file!"); // should be output
+    perror("Failed to close the output file!"); // should be output
     return EXIT_FAILURE;
   }
   if (fclose(f) != 0) {
