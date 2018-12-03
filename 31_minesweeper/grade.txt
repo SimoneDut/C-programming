@@ -1,4 +1,4 @@
-Grading at Sun Dec  2 19:08:39 UTC 2018
+Grading at Mon Dec  3 09:54:17 UTC 2018
 Attempting to compile minesweeper.c
 #################################################
 testcase1:
