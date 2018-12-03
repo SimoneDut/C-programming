@@ -74,11 +74,8 @@ kvarray_t * readSplitLines(FILE * f) {
       free(line);
       sz = 0;
     }
-  }  
-  if (ans->pair == NULL) {
-    fprintf(stderr,"Couldn't read any line from the keys\values file\n");
-    exit(EXIT_FAILURE);
   }
+  free(line);
   return ans;
 }
 
