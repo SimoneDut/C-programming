@@ -3,22 +3,6 @@
 #include <string.h>
 #include "kv.h"
 
-/* 
-
-struct _kvpair_t {
-  char * key;
-  char * value;
-};
-typedef struct _kvpair_t kvpair_t;
-
-struct _kvarray_t {
-  kvpair_t * pair;
-  size_t lenght;
-};
-typedef struct _kvarray_t kvarray_t;
-
-*/
-
 void splitLineN(kvarray_t * KVArray, char * line, ssize_t len, ssize_t posEq) {
   (KVArray->lenght)++;
   size_t currSize = KVArray->lenght;
@@ -80,13 +64,6 @@ kvarray_t * readSplitLines(FILE * f) {
 }
 
 kvarray_t * readKVs(const char * fname) {
-  /*  In readKVs, you will want to open the file, read the lines of text, split them into
-    key/value pairs, add the resulting pairs to an array (hint: realloc it to make it larger
-each time), close the file, and return the kvarray_t * that has your array.
-    Remember that you will want to abstract out complex steps into functions (you should
-see at least 2 pieces to naturally pull out into their own functions).
-    //WRITE ME
-    */
   FILE * f = fopen(fname,"r");
   if (f == NULL) {
     perror("Could not open the keys/values file");
@@ -101,10 +78,6 @@ see at least 2 pieces to naturally pull out into their own functions).
 }
 
 void freeKVs(kvarray_t * pairs) {
-  /* Next, you will write freeKVs, which should free all the memory allocated by readKVs.
-That is,  freeKVs(readKVs(filename)) should not leak any memory.
-  //WRITE ME
-  */
   for (size_t i = 0; i < (pairs->lenght); i++) {
     free((pairs->pair[i]).key);
     free((pairs->pair[i]).value);
@@ -114,26 +87,12 @@ That is,  freeKVs(readKVs(filename)) should not leak any memory.
 }
 
 void printKVs(kvarray_t * pairs) {
-  /* 
-Third, write printKVs which should take a kvarray_t *, and print out
- "key = '%s' value = '%s'\n"
-for each key/value pair in the array, with the first %s being whatever the key is,
-and the second being whatever value (e.g., key = 'Jean Luc Picard' value = 'Captain').
-//WRITE ME
-*/
   for (size_t i = 0; i < (pairs->lenght); i++) {
     printf("key = '%s' value = '%s'\n",(pairs->pair[i]).key,(pairs->pair[i]).value);
   }
 }
 
 char * lookupValue(kvarray_t * pairs, const char * key) {
-  /*
-Finally, write the lookupValue function, which takes a kvarray_t * and a char * (string).
-The char * that is passed in represents a key.  This function searches the kvarray_t 
-for a matching key, and if found, returns the corresponding value.  If no match is found,
-this function returns NULL.
-  //WRITE ME
-  */
   for (size_t i = 0; i < (pairs->lenght); i++) {
     if (strcmp((pairs->pair[i]).key,key) == 0) { return (pairs->pair[i]).value; }
   }
