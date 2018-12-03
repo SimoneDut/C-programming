@@ -135,12 +135,12 @@ void printBoard(board_t * b, int moves, int win) {
     }    
     printf("\n");    
   }  
-  printf("\n----");  
+  printf("----");  
   for (int x = 0; x < b->width; x++) {    
     printf("-");    
   }  
-  printf("\n");    
-  printf("    ");  
+  printf("\n");
+  printf("    ");
   for (int x = 0; x < b->width; x++) {    
     if (x/10 == 0) {      
       printf(" ");      
@@ -557,10 +557,9 @@ int main(int argc, char ** argv) {
     }
     freeBoard(b);
     do {      
-      printf("Do you want to play again? (enter 'Y' or 'y' for yes, any other character to quit)\n");      
+      printf("Do you want to play again? (enter 'Y'/'y' for yes, any other character to quit)\n");      
     } while(getline(&line, &linesz, stdin) == -1);    
   } while(line[0] == 'Y' || line[0] == 'y');  
   free(line);  
   return EXIT_SUCCESS;  
 }
-
