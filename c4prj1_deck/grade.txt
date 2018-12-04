@@ -1,0 +1,10 @@
+Grading at Tue Dec  4 10:58:04 UTC 2018
+Compiling deck.c -> deck.o
+deck.c: In function ‘add_empty_card’:
+deck.c:73:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+Compilation of deck.c failed
+
+Overall Grade: F
