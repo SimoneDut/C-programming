@@ -70,6 +70,7 @@ Add a card whose value and suit are both 0, and return a pointer
   deck->cards[deck->n_cards-1] = malloc(sizeof(*(deck->cards[deck->n_cards-1])));
   deck->cards[deck->n_cards-1]->value = 0;
   deck->cards[deck->n_cards-1]->suit = 0;
+  return deck->cards[deck->n_cards-1];
 }
   
 deck_t * make_deck_exclude(deck_t * excluded_cards) {
