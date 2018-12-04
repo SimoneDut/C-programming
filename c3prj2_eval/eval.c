@@ -143,34 +143,6 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
 }
 
 unsigned * get_match_counts(deck_t * hand) {
-  /*
-   You will find its prototype after the code you wrote
-   in Course 3, and before the functions we
-   provided for you.  Replace the prototype with
-   your implementation.
-     Given a hand (deck_t) of cards, this function
-   allocates an array of unsigned ints with as
-   many elements as there are cards in the hand.
-   It then fills in this array with
-   the "match counts" of the corresponding cards.
-	That is, for each card in the original hand,
-   the value in the match count array
-   is how many times a card of the same
-     value appears in the hand.  For example,
-   given
-     Ks Kh Qs Qh 0s 9d 9c 9h
-   This function would return
-     2  2  2  2  1  3  3  3
-     because there are 2 kings, 2 queens,
-     1 ten, and 3 nines.
-  */
-  /*
-  struct deck_tag {
-    card_t ** cards;
-    size_t n_cards;
-  };
-  typedef struct deck_tag deck_t;
-  */
   unsigned * ans = malloc((hand->n_cards)*sizeof(*ans));
   for (size_t i = 0; i < hand->n_cards; i++) {
     ans[i] = 0;
@@ -181,10 +153,8 @@ unsigned * get_match_counts(deck_t * hand) {
   return ans;
 }
 
-
 // We provide the below functions.  You do NOT need to modify them
 // In fact, you should not modify them!
-
 
 //This function copies a straight starting at index "ind" from deck "from".
 //This copies "count" cards (typically 5).
@@ -209,7 +179,6 @@ void copy_straight(card_t ** to, deck_t *from, size_t ind, suit_t fs, size_t cou
     ind++;
   }
 }
-
 
 //This looks for a straight (or straight flush if "fs" is not NUM_SUITS)
 // in "hand".  It calls the student's is_straight_at for each possible
@@ -243,7 +212,6 @@ int find_straight(deck_t * hand, suit_t fs, hand_eval_t * ans) {
   }
   return 0;
 }
-
 
 //This function puts all the hand evaluation logic together.
 //This function is longer than we generally like to make functions,
