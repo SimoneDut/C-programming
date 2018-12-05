@@ -66,7 +66,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
   
   while ((str[i]!='\n')&&(str[i]!='\0')) {
     if (str[i]!=' ') {
-      if (str[i] = '?') {
+      if (str[i]=='?') {
 	if ((str[i+1]>='0')&&(str[i+1]<='9')) {
 	  if ((str[i+2]>='0')&&(str[i+2]<='9')) {
 	    if ((str[i+3]==' ')||(str[i+3]=='\n')||(str[i+3]=='\0')) { index = (str[i+1]-'0')*10+(str[i+2]-'0'); }
