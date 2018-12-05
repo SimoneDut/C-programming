@@ -1,0 +1,11 @@
+Grading at Wed Dec  5 11:06:45 UTC 2018
+Compiling cards.c -> cards.o
+Compiling deck.c -> deck.o
+Compiling input.c -> input.o
+input.c: In function ‘hand_from_string’:
+input.c:69:18: error: assignment of read-only location ‘*(str + (sizetype)(i * 1ul))’
+       if (str[i] = '?') {
+                  ^
+Compilation of input.c failed
+
+Overall Grade: F
