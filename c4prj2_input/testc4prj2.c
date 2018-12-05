@@ -14,7 +14,7 @@ int main() {
   deck_t * full_deck = make_deck_exclude(null_deck);
   print_hand(full_deck);
   printf("\n");
-  
+
   future_cards_t * fc1 = malloc(sizeof(*fc1));
   fc1->decks = NULL;
   fc1->n_decks = 0;
@@ -34,7 +34,6 @@ int main() {
   printf("%zu\n",fc1->decks[3].n_cards);
   printf("%zu\n",fc1->decks[4].n_cards);
 
-  
   FILE * f = fopen("test.txt","r");
   if (f == NULL) { exit(EXIT_FAILURE); }
   future_cards_t * fc2 = malloc(sizeof(*fc2));
