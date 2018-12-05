@@ -1,11 +1,12 @@
-Grading at Wed Dec  5 11:06:45 UTC 2018
+Grading at Wed Dec  5 11:08:08 UTC 2018
 Compiling cards.c -> cards.o
 Compiling deck.c -> deck.o
 Compiling input.c -> input.o
-input.c: In function ‘hand_from_string’:
-input.c:69:18: error: assignment of read-only location ‘*(str + (sizetype)(i * 1ul))’
-       if (str[i] = '?') {
-                  ^
-Compilation of input.c failed
+Compiling future.c -> future.o
+future.c: In function ‘future_cards_from_deck’:
+future.c:87:28: error: ‘card_t {aka struct card_tag}’ has no member named ‘suid’
+       fc->decks[i].cards[j]->suid = deck->cards[i]->suit;
+                            ^
+Compilation of future.c failed
 
 Overall Grade: F
