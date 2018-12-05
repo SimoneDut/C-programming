@@ -63,19 +63,26 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
 
   size_t i = 0;
   size_t index = 0;
+  size_t move = 0;
   
   while ((str[i]!='\n')&&(str[i]!='\0')) {
     if (str[i]!=' ') {
       if (str[i]=='?') {
 	if ((str[i+1]>='0')&&(str[i+1]<='9')) {
 	  if ((str[i+2]>='0')&&(str[i+2]<='9')) {
-	    if ((str[i+3]==' ')||(str[i+3]=='\n')||(str[i+3]=='\0')) { index = (str[i+1]-'0')*10+(str[i+2]-'0'); }
+	    if ((str[i+3]==' ')||(str[i+3]=='\n')||(str[i+3]=='\0')) {
+	      index = (str[i+1]-'0')*10+(str[i+2]-'0');
+	      move = 3;
+	    }
 	    else {
 	      fprintf(stderr,"Format error: %c%c%c%c\n",str[i],str[i+1],str[i+2],str[i+3]);
 	      exit(EXIT_FAILURE);
 	    }
 	  }
-	  else if ((str[i+2]==' ')||(str[i+2]=='\n')||(str[i+2]=='\0')) { index = str[i+1]-'0'; }
+	  else if ((str[i+2]==' ')||(str[i+2]=='\n')||(str[i+2]=='\0')) {
+	    index = str[i+1]-'0';
+	    move = 2;
+	  }
 	  else {
 	    fprintf(stderr,"Format error: %c%c%c\n",str[i],str[i+1],str[i+2]);
 	    exit(EXIT_FAILURE);
@@ -94,6 +101,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
 	}
 	else if ((str[i+2]==' ')||(str[i+2]=='\n')||(str[i+2]=='\0')) {
 	  add_card_to(ans,card_from_letters(str[i],str[i+1]));
+	  move = 2;
 	}
 	else {
 	  fprintf(stderr,"Format error: %c%c%c\n",str[i],str[i+1],str[i+2]);
@@ -101,6 +109,9 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
 	}
       }
     }
+    if (move < 2) { move = 1; }
+    i += move;
+    move = 0;
   }
   if (ans->n_cards < 5) {
     fprintf(stderr,"This line has only %zu cards\n",ans->n_cards);
