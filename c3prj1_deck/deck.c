@@ -67,6 +67,14 @@ deck_t * make_deck_exclude(deck_t * excluded_cards) {
   return ans;
 }
 
+void free_deck(deck_t * deck) {
+  for (size_t i = 0; i < deck->n_cards; i++) {
+    free(deck->cards[i]);
+  }
+  free(deck->cards);
+  free(deck);
+}
+
 deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands) {
   deck_t * allFromHands = malloc(sizeof(*allFromHands));
   allFromHands->cards = NULL;
@@ -78,14 +86,6 @@ deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands) {
     }
   }
   deck_t * ans = make_deck_exclude(allFromHands);
-  free(allFromHands);
+  free_deck(allFromHands);
   return ans;
-}
-
-void free_deck(deck_t * deck) {
-  for (size_t i = 0; i < deck->n_cards; i++) {
-    free(deck->cards[i]);
-  }
-  free(deck->cards);
-  free(deck);
 }
